@@ -5,7 +5,7 @@ public class Zoo {
     // ===== Instance Variables =====
     // Create (but do not instantiate) a private instance variable called "cages".
     // This variable is an ArrayList of Cages.
-   private ArrayList<Cage> Cages;
+   private ArrayList<Cage> cages;
 
     // ===== Constructors =====
 
@@ -16,11 +16,11 @@ public class Zoo {
      */
     public Zoo() {
         // TODO: instantiate cages
-        this.Cages = new ArrayList<Cage>();
+        this.cages = new ArrayList<Cage>();
         // TODO: add 3 new Cage() objects to cages
-        Cages.add(new Cage());
-        Cages.add(new Cage());
-        Cages.add(new Cage());
+        cages.add(new Cage());
+        cages.add(new Cage());
+        cages.add(new Cage());
     }
 
     /**
@@ -29,10 +29,11 @@ public class Zoo {
      * Creates a Zoo with numCages cages.
      */
     public Zoo(int numCages) {
+        this.cages = new ArrayList<Cage>();
         // TODO: instantiate cages
         // TODO: add numCages cages (each should start with at least one animal)
         for(int i=0;i<numCages;i++){
-            Cages.add(new Cage());
+            cages.add(new Cage());
         }
     }
 
@@ -55,7 +56,7 @@ public class Zoo {
     public boolean putAnimalInCage(Cage cage, Animal animal) {
         // TODO:
         // 1) check whether 'cage' is in 'cages'
-        if(Cages.contains(cage)){
+        if(cages.contains(cage)){
            cage.addAnimal(animal);
            return true;
            }
@@ -71,7 +72,7 @@ public class Zoo {
     public boolean moveAnimal(Cage from, Cage to, Animal animal) {
         // TODO:
         // - verify from and to are in this Zoo
-        if(Cages.contains(from)&&Cages.contains(to)){
+        if(cages.contains(from)&&cages.contains(to)){
             from.removeAnimal(animal);
             to.addAnimal(animal);
                }
@@ -83,28 +84,29 @@ public class Zoo {
     // ===== Getters =====
 
     public ArrayList<Cage> getCages() {
-        return Cages;
+        return cages;
     }
 
     public Cage getCageAtIndex(int index) {
         // TODO: return cage at index (or null if invalid)
-        if(index<Cages.size()){
-            return Cages.get(index);
+        if(index<cages.size()){
+            return cages.get(index);
         }
         return null;
     }
 
+
     public String toString() {
         // TODO: return a readable multi-line summary of the zoo and its cages
         // (How many cages, and each cage's contents.)
-        return ""+Cages;
+        return ""+cages;
     }
 
     // ===== Main for Testing (not graded) =====
     public static void main(String[] args) {
 
         // Create a zoo with default constructor
-        Zoo myZoo = new Zoo();
+        Zoo myZoo = new Zoo(3);
         Zoo notMyZoo = new Zoo();
         
         // Demonstrate howManyAnimals
