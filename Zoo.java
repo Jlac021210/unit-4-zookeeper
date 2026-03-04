@@ -90,7 +90,7 @@ public class Zoo {
 
     public Cage getCageAtIndex(int index) {
         // TODO: return cage at index (or null if invalid)
-        if(index<cages.size()){
+        if(index<cages.size()&&index>=0){
             return cages.get(index);
         }
         return null;
